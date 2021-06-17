@@ -14,18 +14,28 @@ class BotPlayer extends Player {
     }
 
     private int chooseMax() {
-        Iterator<Integer> iterator = super.getCards().iterator();
-        int max = -1;
-        // сделать удаление максимального элемента за одну проходку
-
-        while (iterator.hasNext()){
-
+        int maxIndex = -1;
+        int maxEl = super.getCards().get(0);
+        for (int i = 1; i < super.getCards().size(); i++) {
+            if (super.getCards().get(i) > maxEl) {
+                maxEl = super.getCards().get(i);
+                maxIndex = i;
+            }
         }
-
-        return -1;
+        super.getCards().remove(maxIndex);
+        return maxEl;
     }
 
     private int chooseMin() {
-        return -1;
+        int minIndex = -1;
+        int minEl = super.getCards().get(0);
+        for (int i = 1; i < super.getCards().size(); i++) {
+            if (super.getCards().get(i) > minEl) {
+                minEl = super.getCards().get(i);
+                minIndex = i;
+            }
+        }
+        super.getCards().remove(minIndex);
+        return minEl;
     }
 }
