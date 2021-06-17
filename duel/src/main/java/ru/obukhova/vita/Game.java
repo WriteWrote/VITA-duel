@@ -1,38 +1,38 @@
 package ru.obukhova.vita;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Game {
-    private List<Player> playerList;
-    boolean queue = false;
+    public static void main(String[] args) {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-    public Game(List<Player> playerList) {
-        this.playerList = new ArrayList<>();
-        this.playerList.add(new HumanPlayer());
-        this.playerList.add(new BotPlayer());
-    }
+        HumanPlayerBean human = context.getBean("humanPlayerBean", HumanPlayerBean.class);
+        BotPlayerBean bot = context.getBean("botPlayerBean", BotPlayerBean.class);
 
-    public void playGame() {
-        System.out.println(
-                "Game is playing with itself"
-        );
         System.out.print("Выбираем очередность ходов... Первый ход: ");
+        boolean queue = human.getCards().get(0) > bot.getCards().get(0);
         if (queue) System.out.println("человек");
         else System.out.println("бот");
 
-        while (playerList.get(0).getCards().size() > 0 || playerList.get(0).getCards().size() > 0) {
+        while (human.getCards().size() > 0 || bot.getCards().size() > 0) {
             if (queue) {
                 System.out.println("Человек атакует.");
-                round(playerList.get(0), playerList.get(1));
+                round(human, bot);
+                queue = false;
             } else {
                 System.out.println("Бот атакует.");
-                round(playerList.get(1), playerList.get(0));
+                round(bot, human);
+                queue = true;
             }
         }
+        context.close();
     }
 
-    private void round(Player Pl1, Player Pl2) {
+    private static void round(PlayerBean Pl1, PlayerBean Pl2) {
         int card1 = Pl1.getCard();
         int card2 = Pl2.getCard();
         if (card1 - card2 > 0) {
