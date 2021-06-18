@@ -14,8 +14,9 @@ abstract class PlayerBean {
         this.score = 0;
         this.cards = new LinkedList<>();
 
-        for (int i = 0; i < 3; i++) {
-            this.cards.add((int) (Math.random() * (11)));
+        for (int i = 0; i < 12; i++) {
+            //this.cards.add((int) (Math.random() * (11)));
+            this.cards.add(i);
         }
         this.name = name;
     }

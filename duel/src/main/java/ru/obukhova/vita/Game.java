@@ -2,10 +2,6 @@ package ru.obukhova.vita;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-
 public class Game {
     public static void main(String[] args) throws InterruptedException {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
@@ -14,17 +10,15 @@ public class Game {
         PlayerBean bot = context.getBean("botPlayerBean", PlayerBean.class);
 
         System.out.print("Выбираем очередность ходов... Первый ход: ");
-        boolean queue = human.getCards().get(0) >= bot.getCards().get(0);
+        boolean queue = Math.random() <= 0.5;
         if (queue) System.out.println(human.getName());
         else System.out.println(bot.getName());
 
         while (human.getCards().size() > 0 || bot.getCards().size() > 0) {
             if (queue) {
-                //System.out.println(" атакует.");
                 round(human, bot);
                 queue = false;
             } else {
-                //System.out.println("Бот атакует.");
                 round(bot, human);
                 queue = true;
             }
@@ -33,7 +27,9 @@ public class Game {
         Thread.sleep(800);
         System.out.println(human.getName() + " - " + human.getScore() + "   vs   " + bot.getScore() + " - " + bot.getName());
         Thread.sleep(500);
-        System.out.println("Победитель - " + (human.getScore() < bot.getScore() ? human.getName() : bot.getName()));
+        if (human.getScore() == bot.getScore()) System.out.println("Победителя нет!");
+        else
+            System.out.println("Победитель - " + (human.getScore() < bot.getScore() ? human.getName() : bot.getName()));
         context.close();
     }
 
