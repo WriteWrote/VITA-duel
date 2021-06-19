@@ -17,7 +17,7 @@ But first two algorithms above are too predictive, and random-algorithm does not
      
      * two random numbers from [7-9]
      
-     * all minimum numbers from [0-3] (also randomly)
+     * all numbers from [0-3] (also randomly)
      
      * leftover number from [4-6]
      
