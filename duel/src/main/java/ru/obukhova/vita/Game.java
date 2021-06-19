@@ -23,6 +23,7 @@ public class Game {
                 queue = true;
             }
         }
+
         System.out.println("Определяем победителя... Подсчитываем штрафные очки...");
         Thread.sleep(800);
         System.out.println(human.getName() + " - " + human.getScore() + "   vs   " + bot.getScore() + " - " + bot.getName());
@@ -30,9 +31,21 @@ public class Game {
         if (human.getScore() == bot.getScore()) System.out.println("Победителя нет!");
         else
             System.out.println("Победитель - " + (human.getScore() < bot.getScore() ? human.getName() : bot.getName()));
+
         context.close();
     }
 
+    /**
+     * Method which takes two links on the objects of {@link PlayerBean} and
+     * provides an attack of first player (as parameter) on the second (as parameter)
+     * player. After that it counts and adds additional points to the second player.
+     * The idea is that bot- and human- player can switch as parameters and so code will be
+     * more readable an economical.
+     *
+     * @param Pl1 first link to {@link PlayerBean} object
+     * @param Pl2 second link to {@link PlayerBean} object
+     * @throws InterruptedException because uses {@code Thread.sleep()}
+     */
     private static void round(PlayerBean Pl1, PlayerBean Pl2) throws InterruptedException {
         System.out.println(Pl1.getName() + " атакует.");
         Thread.sleep(1000);
@@ -48,7 +61,8 @@ public class Game {
         if (card1 - card2 > 0) {
             Pl2.addPoints(card1 - card2);
             System.out.println(Pl2.getName() + " присуждено " + (card1 - card2) + " штрафных очков.");
-        } else System.out.println("Штрафных очков нет");
+        } else
+            System.out.println("Штрафных очков нет");
         System.out.println();
         Thread.sleep(1000);
     }
