@@ -12,11 +12,17 @@ First two algorithms are **"Choose max. cards firstly"** (so the attack will be 
 But first two algorithms above are too predictive, and random-algorithm does not seems to me promising enough. (Also, the win with this algorithm is the matter of luck.)
 
 **Last algorithm ("Median")** divides all available cards into four baskets: [0-3], [4-6], [7-9], [10-11]. Then it picks numbers in that order:
+     
      * two random numbers from [4-6]
+     
      * two random numbers from [7-9]
+     
      * all minimum numbers from [0-3] (also randomly)
+     
      * leftover number from [4-6]
+     
      * leftover number from [7-9]
+     
      * randomly picks all numbers from [10-11]
      
 This way it is possible to save the most valuable cards for the last attacks or defends, and at first bot will use "middle"-value cards. After that it will throw away all useless cards from [0-3] (so human-player likely waste some cards) and finally defends/attacks with most powerful cards.
