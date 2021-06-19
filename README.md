@@ -6,12 +6,12 @@ This is a simple project that imitates card-game.
 The point was to make a working algorithm to challenge actual player.
 
 # Used algorithms
-I used several very simple algorithms and one a bit more difficult than others, which, as I believe, externalize all advantages from simple ones.
+I wrote several very simple algorithms and one a bit more difficult than others, which, as I believe, externalize all advantages from simple ones.
 First two algorithms are **"Choose max. cards firstly"** (so the attack will be more powerful), and **"Choose min.cards firstly"** (so the most useless cards will be thrown away quickly). Another simple algorithm is just **"Choosing card randomly"**.
 
 But first two algorithms above are too predictive, and random-algorithm does not seems to me promising enough. (Also, the win with this algorithm is the matter of luck.)
 
-**Last algorithm ("Median")** divides all available cards into four baskets: [0-3], [4-6], [7-9], [10-11]. Then it picks numbers in that order:
+**Last algorithm ("Median")**, which I used in final version of project, divides all available cards into four baskets: [0-3], [4-6], [7-9], [10-11]. Then it picks numbers in that order:
      
      * two random numbers from [4-6]
      
