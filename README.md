@@ -1,5 +1,6 @@
 # VITA-duel
 This is a simple project that imitates card-game.
+
 **Rules of the game:** there are two players, each holding 12 cards with numbers from 0 to 11. The first player chooses a card from his hand and places it face down on the table. The number on the selected card will be the player's "attack". After that, the second player chooses a card from the remaining in his hand and also plays it face down. This is his "defend". After that, the players simultaneously turn over the cards, and the defending player receives as many penalty points as the "attack" of the first player exceeds the defense of the "second". In the next round, the players switch places. The game ends when the players have no cards left in their hands. The player with the least penalty points wins.
 
 The point was to make a working algorithm to challenge actual player.
