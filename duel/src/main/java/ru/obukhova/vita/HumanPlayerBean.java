@@ -31,6 +31,11 @@ class HumanPlayerBean extends PlayerBean {
 
         Scanner scanner = new Scanner(System.in);
         int card = scanner.nextInt();
+        if (!super.getCards().contains(card)) {
+            System.out.println("У вас нет такой карты. Попробуйте заново.");
+            card = this.getCard();
+            return card;
+        }
         System.out.println("Ваш выбор: " + card);
         Thread.sleep(500);
 

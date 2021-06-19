@@ -9,6 +9,7 @@ class BotPlayerBean extends PlayerBean {
     BotPlayerBean(final String name) {
         super(name);
     }
+
     /**
      * This overridden method covers the actual algorithm of choosing the card.
      * Different types of algorithms are hidden in private methods.
@@ -22,7 +23,7 @@ class BotPlayerBean extends PlayerBean {
         Thread.sleep(700);
         // type of algorithm. Still thinking how to invert
         // the choice of it, if it's even possible
-        int card = chooseRandom();
+        int card = chooseMedian();
 
         System.out.println("Бот выбрал карту.");
         Thread.sleep(1000);
