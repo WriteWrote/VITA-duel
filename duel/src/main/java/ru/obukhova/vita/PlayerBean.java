@@ -47,7 +47,7 @@ abstract class PlayerBean {
     /**
      * This void do not exactly set new number of Points, although it comes from the setter.
      * It takes as a parameter some number which represents additional
-     * points and adds them to personal and already existing score of Player.
+     * points and adds them to personal, already existing score of Player.
      *
      * @param newPoints number of additional points
      */

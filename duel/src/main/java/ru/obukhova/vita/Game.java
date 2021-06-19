@@ -38,8 +38,8 @@ public class Game {
     /**
      * Method which takes two links on the objects of {@link PlayerBean} and
      * provides an attack of first player (as parameter) on the second (as parameter)
-     * player. After that it counts and adds additional points to the second player.
-     * The idea is that bot- and human- player can switch as parameters and so code will be
+     * player. After that it counts and adds additional points to the second player's score.
+     * The idea is that bot- and human- player objects can switch as parameters and so code will be
      * more readable an economical.
      *
      * @param Pl1 first link to {@link PlayerBean} object
